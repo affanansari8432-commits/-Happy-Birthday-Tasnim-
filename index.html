@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Tasnim ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ff9acb,#ffd6e8,#fff);
+overflow:hidden;
+}
+
+.page{
+width:100%;
+height:100vh;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+}
+
+.active{
+display:flex;
+animation:fade 1s;
+}
+
+@keyframes fade{
+from{opacity:0;transform:scale(.9);}
+to{opacity:1;transform:scale(1);}
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+button{
+padding:12px 25px;
+background:#ff4081;
+border:none;
+color:white;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+margin-top:20px;
+}
+
+button:hover{
+background:#e91e63;
+}
+
+h1{
+color:#ff4081;
+margin-bottom:15px;
+}
+
+.gallery img{
+width:180px;
+height:220px;
+object-fit:cover;
+border-radius:15px;
+margin:10px;
+border:5px solid white;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+.teddy{
+font-size:140px;
+}
+
+.gifts{
+font-size:80px;
+}
+
+.cake{
+font-size:150px;
+animation:bounce 1s infinite;
+}
+
+@keyframes bounce{
+50%{transform:translateY(-10px);}
+}
+
+.hearts{
+position:absolute;
+font-size:25px;
+animation:fly 5s linear infinite;
+}
+
+@keyframes fly{
+0%{
+transform:translateY(100vh);
+opacity:1;
+}
+100%{
+transform:translateY(-100px);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div id="p1" class="page active">
+<div class="card">
+<h1>💌 Happy Birthday Tasnim 💌</h1>
+
+<p>
+A special surprise is waiting for you ❤️
+</p>
+
+<button onclick="nextPage()">
+Open Card 🎁
+</button>
+
+</div>
+</div>
+
+<div id="p2" class="page">
+
+<h1>🎉 Happy Birthday Tasnim 🎉</h1>
+
+<div class="cake">
+🎂
+</div>
+
+<p>May Allah always keep you smiling ❤️</p>
+
+<button onclick="nextPage()">
+Next ➜
+</button>
+
+</div><!-- PAGE 3 : PHOTO GALLERY -->
+
+<div id="p3" class="page">
+
+<h1>📸 Happy Birthday Tasnim ❤️</h1>
+
+<div class="gallery">
+
+<img src="photo1.jpg">
+
+<img src="photo2.jpg">
+
+<img src="photo3.jpg">
+
+<img src="photo4.jpg">
+
+<img src="photo5.jpg">
+
+</div>
+
+<button onclick="nextPage()">
+Next ➜
+</button>
+
+</div>
+
+
+<!-- PAGE 4 : TEDDY -->
+
+<div id="p4" class="page">
+
+<div class="teddy">
+🧸
+</div>
+
+<div class="card">
+
+<h1>Happy Birthday</h1>
+
+<h2 style="color:#ff4081;">
+Tasnim ❤️
+</h2>
+
+<p>
+May your life always be filled with happiness, love and smiles.
+</p>
+
+</div>
+
+<button onclick="nextPage()">
+Next ➜
+</button>
+
+</div><!-- PAGE 5 : GIFTS -->
+
+<div id="p5" class="page">
+
+<h1>🎁 Surprise For Tasnim 🎁</h1>
+
+<div class="gifts">
+🎁 🎀 🎁 🎈 🎉 🎁
+</div>
+
+<p style="margin-top:20px;font-size:22px;color:#ff4081;">
+💖 Wishing You Endless Happiness 💖
+</p>
+
+<h2 style="margin-top:20px;color:#ff1493;">
+Happy Birthday Tasnim ❤️
+</h2>
+
+<button onclick="restart()">
+💝 Open Again
+</button>
+
+</div>
+
+<script>
+
+let current = 1;
+
+function nextPage(){
+
+document.getElementById("p"+current).classList.remove("active");
+
+current++;
+
+document.getElementById("p"+current).classList.add("active");
+
+}
+
+function restart(){
+
+document.getElementById("p"+current).classList.remove("active");
+
+current=1;
+
+document.getElementById("p1").classList.add("active");
+
+}
+
+function hearts(){
+
+const h=document.createElement("div");
+
+h.className="hearts";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.animationDuration=(Math.random()*3+3)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+h.remove();
+},6000);
+
+}
+
+setInterval(hearts,300);
+
+</script>
+
+</body>
+</html>
